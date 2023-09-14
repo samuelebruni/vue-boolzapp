@@ -106,7 +106,7 @@ const { createApp } = Vue
                 ],
             },
             {
-                name: 'Claudia',
+                name: 'Aurora',
                 avatar: './assets/img/avatar_6.jpg',
                 visible: true,
                 messages: [

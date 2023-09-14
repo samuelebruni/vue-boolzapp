@@ -17,7 +17,7 @@
 }
 
 .bg_principal{
-    color: var(--bz-app-principal);
+    color: #B1B1B1;
 }
 
 .bg_focus{
@@ -39,14 +39,24 @@
     font-size: 12px;
 }
 
+.fs_xsmall{
+    font-size: 10px;
+}
+
 .border_mod{
     border-top: 1px solid rgb(247, 244, 244);
 }
 
-.border_left{
+.border_let{
     border-left: 1px solid rgb(207, 203, 203);
 }
 
 .background_img{
     background-image: url(/assets/img/mine.jpg);
+    height: calc(82vh - 8px);
+    overflow: auto;
+}
+
+.bg_sfondo{
+    background-color: #F3EEEA;
 }
