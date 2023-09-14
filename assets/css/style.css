@@ -60,3 +60,7 @@
 .bg_sfondo{
     background-color: #F3EEEA;
 }
+
+.bg_success{
+    background-color: var(--bz-app-success);
+}
