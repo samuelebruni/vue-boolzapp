@@ -4,6 +4,7 @@ const { createApp } = Vue
     data() {
       return {
         
+        activeChat: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -30,7 +31,7 @@ const { createApp } = Vue
             {
                 name: 'Fabio',
                 avatar: './assets/img/avatar_2.jpg',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -52,7 +53,7 @@ const { createApp } = Vue
             {
                 name: 'Samuele',
                 avatar: './assets/img/avatar_3.jpg',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -74,7 +75,7 @@ const { createApp } = Vue
             {
                 name: 'Alessandro B.',
                 avatar: './assets/img/avatar_4.jpg',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -91,7 +92,7 @@ const { createApp } = Vue
             {
                 name: 'Alessandro L.',
                 avatar: './assets/img/avatar_5.jpg',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -108,7 +109,7 @@ const { createApp } = Vue
             {
                 name: 'Aurora',
                 avatar: './assets/img/avatar_6.jpg',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -130,7 +131,7 @@ const { createApp } = Vue
             {
                 name: 'Federico',
                 avatar: './assets/img/avatar_7.jpg',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -147,7 +148,7 @@ const { createApp } = Vue
             {
                 name: 'Davide',
                 avatar: './assets/img/avatar_8.jpg',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
