@@ -55,7 +55,7 @@
                         
                         <div style="height: 75vh; overflow: auto;">
                             
-                            <div class="d-flex justify-content-between gap-1 p-2 border_mod" style="width: 400px; max-width: 480px; cursor: pointer;" v-for="(contact, index) in contacts" @click="activatedContact(index)" :class="contactActive == index ? 'bg_light' : '' ">
+                            <div v-for="(contact, index) in contacts" class="d-flex justify-content-between gap-1 p-2 border_mod" style="width: 400px; max-width: 480px; cursor: pointer;" @click="activatedContact(index)" :class="contactActive == index ? 'bg_light' : '' ">
                                 
                                 <div class="d-flex gap-1">
                                     <img class="circle" style="height: 70px; width: 70px;" :src="contact.avatar" alt="">
@@ -133,7 +133,7 @@
                         <span class="input-group-text border-0 bg_sfondo" style="cursor: pointer;">
                             <i class="fa-regular fa-face-smile fa-lg bg_principal"></i>
                         </span>
-                        <input type="text" class="form-control border-0 rounded-2 p-2 shadow-sm" placeholder="Scrivi un messaggio..">
+                        <input type="text" class="form-control border-0 rounded-2 p-2 shadow-sm" placeholder="Scrivi un messaggio.." v-model="newElement" @keyup.enter="pushFunction">
                         <span class="input-group-text border-0 bg_sfondo" style="cursor: pointer;">
                             <i class="fa-solid fa-microphone fa-lg"></i>
                         </span>

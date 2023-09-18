@@ -3,7 +3,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        
+        newElement: '',
         contactActive: 0,
         contacts: [
             {
@@ -176,5 +176,22 @@ const { createApp } = Vue
         activatedContact(index) {
             this.contactActive = index;
         },
+        pushFunction(){
+            let newTask = {
+                date: new Date(),
+                message: this.newElement,
+                status: 'sent'
+            };
+            this.contacts[this.contactActive].messages.push(newTask);
+            this.newElement = '';
+            const myTimeout = setTimeout( () => {
+                let responseMessage = {
+                    date: new Date(),
+                    message: 'ok',
+                    status: 'received'
+                };
+                this.contacts[this.contactActive].messages.push(responseMessage);
+            }, 1000)
+        },
     }
-  }).mount('#app')
+ }).mount('#app')
