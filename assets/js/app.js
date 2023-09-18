@@ -3,6 +3,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        findContactModel: '',
         newElement: '',
         contactActive: 0,
         contacts: [
@@ -128,6 +129,7 @@ const { createApp } = Vue
                     }
                 ],
             },
+
             {
                 name: 'Federico',
                 avatar: './assets/img/avatar_7.jpg',
@@ -167,10 +169,12 @@ const { createApp } = Vue
                     }
                 ],
             }
-        ]
-        
-
+        ],
+        contactsFiltered: [],
       }
+    },
+    mounted(){
+        this.contactsFiltered = this.contacts;
     },
     methods:{
         activatedContact(index) {
@@ -193,5 +197,22 @@ const { createApp } = Vue
                 this.contacts[this.contactActive].messages.push(responseMessage);
             }, 1000)
         },
+        findContact(){
+            this.contactsFiltered = this.contacts.filter(contact => contact.name.toLowerCase().includes(this.findContactModel.toLowerCase()));
+        },
+        deleteMessageFunction(index){
+            this.contacts[this.contactActive].messages.splice(index, 1);
+        },
+        formatDate(date){
+            date = new Date(date);
+            if (date.getFullYear() === new Date().getFullYear() && date.getMonth() === new Date().getMonth() && date.getDate() === new Date().getDate()){
+                return date.getHours() + ':' + date.getMinutes();
+            } else {
+                return date.getDate() + '/' + parseInt(date.getMonth() + 1) + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes();
+            }
+            
+        }
     }
  }).mount('#app')
+
+ 

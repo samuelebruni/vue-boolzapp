@@ -48,14 +48,14 @@
                             <span class="input-group-text bg-white border-0 shadow-sm" style="cursor: pointer;">
                                 <i class="fa-solid fa-magnifying-glass fa-xs bg_principal"></i>
                             </span>
-                            <input type="text" class="form-control fs_small border-0 shadow-sm" placeholder="Cerca o inizia una nuova chat..">
+                            <input v-model="findContactModel" type="text" class="form-control fs_small border-0 shadow-sm" placeholder="Cerca o inizia una nuova chat.." @keyup="findContact">
                         </div>
                     </div>
                     <div class="bg-white container d-flex shadow-sm">
                         
                         <div style="height: 75vh; overflow: auto;">
                             
-                            <div v-for="(contact, index) in contacts" class="d-flex justify-content-between gap-1 p-2 border_mod" style="width: 400px; max-width: 480px; cursor: pointer;" @click="activatedContact(index)" :class="contactActive == index ? 'bg_light' : '' ">
+                            <div v-for="(contact, index) in contactsFiltered" :key="index" class="d-flex justify-content-between gap-1 p-2 border_mod" style="width: 400px; max-width: 480px; cursor: pointer;" @click="activatedContact(index)" :class="contactActive == index ? 'bg_light' : '' ">
                                 
                                 <div class="d-flex gap-1">
                                     <img class="circle" style="height: 70px; width: 70px;" :src="contact.avatar" alt="">
@@ -107,19 +107,37 @@
                                 
                                 <ul>
                                     <li class="list-unstyled mt-4 d-flex justify-content-end" v-if="value.status == 'sent'">
-                                        <div class="d-flex justify-content-end">
-                                            <div class="bg_success rounded-3 p-2">
+                                        <div class="bg_success rounded-3 p-2">
+                                            <div class="d-flex justify-content-between gap-1">
                                                 {{value.message}}
-                                                <div class="fs_xsmall text-end bg_principal">{{value.date}}</div>
+                                                <div class="dropdown">
+                                                    <i type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="fa-solid fa-chevron-down fa-2xs bg_principal"></i>
+                                                    </i>
+                                                    <ul class="dropdown-menu">
+                                                      <li><a class="dropdown-item" href="#">Message Info</a></li>
+                                                      <li><a @click="deleteMessageFunction(index)" class="dropdown-item" href="#">Delete Message</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
+                                            <div class="fs_xsmall text-end bg_principal">{{formatDate(value.date)}}</div>
                                         </div>
                                     </li>
-                                    <li class="list-unstyled mt-4" v-else>
-                                        <div class="d-flex justify-content-start">
-                                            <div class="bg-white p-2 rounded-3">
+                                    <li v-else class="list-unstyled mt-4 d-flex justify-content-start">
+                                        <div class="bg-white rounded-3 p-2">
+                                            <div class="d-flex justify-content-between gap-1">
                                                 {{value.message}}
-                                                <div class="fs_xsmall text-end bg_principal">{{value.date}}</div>
+                                                <div class="dropdown">
+                                                    <i type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="fa-solid fa-chevron-down fa-2xs bg_principal"></i>
+                                                    </i>
+                                                    <ul class="dropdown-menu">
+                                                      <li><a class="dropdown-item" href="#">Message Info</a></li>
+                                                      <li><a @click="deleteMessageFunction(index)" class="dropdown-item" href="#">Delete Message</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
+                                            <div class="fs_xsmall text-end bg_principal">{{formatDate(value.date)}}</div>
                                         </div>
                                     </li>
                                 </ul>     
@@ -154,8 +172,10 @@
     </div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./assets/js/app.js"></script>
+    
 
 
 </body>
