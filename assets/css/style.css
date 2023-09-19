@@ -52,7 +52,7 @@
 }
 
 .background_img{
-    background-image: url(/assets/img/mine.jpg);
+    background-image: url(../img/mine.jpg);
     height: calc(82vh - 8px);
     overflow: auto;
 }
